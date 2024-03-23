@@ -11,9 +11,10 @@ install_dependencies() {
     # Instala pacotes necessários
     sudo apt install -y wget software-properties-common apt-transport-https libarchive-tools dos2unix gnupg2
     # Baixa e adiciona a chave de autenticação do WineHQ
-    wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+    wget -qO - https://dl.winehq.org/wine-builds/winehq.key
+    sudo apt-key add winehq.key
     # Adiciona o repositório do WineHQ
-    sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+    sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
     # Atualiza a lista de pacotes novamente para incluir o WineHQ
     sudo apt update
     # Instala o pacote winehq-stable
