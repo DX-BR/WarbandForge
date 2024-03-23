@@ -21,6 +21,7 @@ install_dependencies() {
     sudo apt install -y --install-recommends winehq-stable
     # Limpa o cache dos pacotes baixados
     sudo apt clean
+    wine --version
 }
 
 # Function to install MBW server
