@@ -11,7 +11,9 @@ install_dependencies() {
     # Install necessary packages
     apt install -y wget software-properties-common apt-transport-https libarchive-tools dos2unix && \
     # Add WineHQ repository key
-    wget -qO - https://dl.winehq.org/wine-builds/Release.key | apt-key add - && \
+    wget -nc https://dl.winehq.org/wine-builds/winehq.key && \
+    apt-key add winehq.key && \
+    rm winehq.key && \
     # Add WineHQ repository
     apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && \
     # Update apt cache again
