@@ -3,23 +3,22 @@
 # Function to install dependencies
 install_dependencies() {
     # Add i386 architecture
-    dpkg --add-architecture i386 && \
+    dpkg --add-architecture i386
     # Update apt cache
-    apt update && \
+    apt update
     # Upgrade packages
-    apt upgrade -y && \
+    apt upgrade -y
     # Install necessary packages
-    apt install -y wget software-properties-common apt-transport-https libarchive-tools dos2unix && \
+    apt install -y wget software-properties-common apt-transport-https libarchive-tools dos2unix
     # Add WineHQ repository key
-    wget -nc https://dl.winehq.org/wine-builds/winehq.key && \
-    apt-key add winehq.key && \
-    rm winehq.key && \
+    wget -nc https://dl.winehq.org/wine-builds/winehq.key
+    apt-key add winehq.key
     # Add WineHQ repository
-    echo "deb https://dl.winehq.org/wine-builds/ubuntu/ focal main" | tee /etc/apt/sources.list.d/winehq.list && \
+    echo "deb https://dl.winehq.org/wine-builds/ubuntu/ focal main" | tee /etc/apt/sources.list.d/winehq.list
     # Update apt cache again
-    apt update && \
+    apt update
     # Install WineHQ Stable
-    apt install -y --install-recommends winehq-stable && \
+    apt install -y --install-recommends winehq-stable
     # Clean apt cache
     apt clean
 }
