@@ -9,7 +9,7 @@ install_dependencies() {
     # Upgrade packages
     apt upgrade -y && \
     # Install necessary packages
-    apt install -y wget software-properties-common apt-transport-https bsdtar dos2unix && \
+    apt install -y wget software-properties-common apt-transport-https libarchive-tools dos2unix && \
     # Add WineHQ repository key
     wget -qO - https://dl.winehq.org/wine-builds/Release.key | apt-key add - && \
     # Add WineHQ repository
