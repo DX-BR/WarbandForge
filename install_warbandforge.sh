@@ -15,7 +15,7 @@ install_dependencies() {
     apt-key add winehq.key && \
     rm winehq.key && \
     # Add WineHQ repository
-    apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && \
+    echo "deb https://dl.winehq.org/wine-builds/ubuntu/ focal main" | tee /etc/apt/sources.list.d/winehq.list && \
     # Update apt cache again
     apt update && \
     # Install WineHQ Stable
