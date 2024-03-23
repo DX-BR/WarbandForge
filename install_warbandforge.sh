@@ -14,7 +14,7 @@ install_dependencies() {
     wget -qO - https://dl.winehq.org/wine-builds/winehq.key
     sudo apt-key add winehq.key
     # Adiciona o repositório do WineHQ
-    sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+    sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
     # Atualiza a lista de pacotes novamente para incluir o WineHQ
     sudo apt update
     # Instala o pacote winehq-stable
