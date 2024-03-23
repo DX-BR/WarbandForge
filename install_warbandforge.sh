@@ -2,25 +2,24 @@
 
 # Function to install dependencies
 install_dependencies() {
-    # Add i386 architecture
-    dpkg --add-architecture i386
-    # Update apt cache
-    apt update
-    # Upgrade packages
-    apt upgrade -y
-    # Install necessary packages
-    apt install -y wget software-properties-common apt-transport-https libarchive-tools dos2unix
-    # Add WineHQ repository key
-    wget -nc https://dl.winehq.org/wine-builds/winehq.key
-    apt-key add winehq.key
-    # Add WineHQ repository
-    echo "deb https://dl.winehq.org/wine-builds/ubuntu/ focal main" | tee /etc/apt/sources.list.d/winehq.list
-    # Update apt cache again
-    apt update
-    # Install WineHQ Stable
-    apt install -y --install-recommends winehq-stable
-    # Clean apt cache
-    apt clean
+    # Adiciona a arquitetura i386
+    sudo dpkg --add-architecture i386
+    # Atualiza a lista de pacotes disponíveis
+    sudo apt update
+    # Atualiza todos os pacotes instalados para a versão mais recente
+    sudo apt upgrade -y
+    # Instala pacotes necessários
+    sudo apt install -y wget software-properties-common apt-transport-https libarchive-tools dos2unix gnupg2
+    # Baixa e adiciona a chave de autenticação do WineHQ
+    wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+    # Adiciona o repositório do WineHQ
+    sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+    # Atualiza a lista de pacotes novamente para incluir o WineHQ
+    sudo apt update
+    # Instala o pacote winehq-stable
+    sudo apt install -y --install-recommends winehq-stable
+    # Limpa o cache dos pacotes baixados
+    sudo apt clean
 }
 
 # Function to install MBW server
